@@ -8,7 +8,7 @@
         <div><a href="/">topへ</a></div>
         <div><a class="cursor" wire:click="logout">ログアウト</a></div>
     </div>
-    
+
     <div class="mt20 wi-60 ccenter3 sp-90">
         <div class="box-shadow3 p20">
             <div class="f1-5 tcenter">会社登録</div>
@@ -49,29 +49,22 @@
                 <div class="p10 mt30">
                     <div class="f1-5 tcenter mt20">会社一覧</div>
                     @foreach ($campanies as $item)
-                        <div class="flex mt50">
+                        <div class="flex mt50 b p10">
                             <form class="sp-80" wire:submit.prevent="update({{ $item->id }})">
-
-                                <div class="flex">
-                                    <div class="sp-80">
-                                        <div wire:model="delName">{{ $item->name }}</div>
-                                        <div><input class="sp-90" type="text" placeholder="変更する場合は入力してください"
-                                                wire:model="updateName" required>
-                                        </div>
+                                    <div wire:model="delName">{{ $item->name }}</div>
+                                    <div><input class="sp-100" type="text" placeholder="変更する場合は入力してください"
+                                            wire:model="updateName" required>
                                     </div>
-
-                                    <div class="sp-20"><button class="original-button2" type="submit">変更</button>
+                                <div class="flex mt20">
+                                    <div class="mr30"><button class="original-button2" type="submit">変更</button>
                                     </div>
+                                    <div class="" wire:click="del({{ $item->id }})"><button
+                                            class="original-button3">削除</button></div>
                                 </div>
-
-
                             </form>
-                            <div class="sp-20" wire:click="del({{ $item->id }})"><button
-                                    class="original-button3">削除</button></div>
                         </div>
                     @endforeach
                 </div>
-
             </div>
         </div>
 

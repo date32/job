@@ -8,7 +8,7 @@
         <div><a href="/">topへ</a></div>
         <div><a class="cursor" wire:click="logout">ログアウト</a></div>
     </div>
-    
+
     <div class="box-shadow3 mt20 wi-70 ccenter3 p20 sp-90">
         <div class="tcenter f1-5">メンバー登録</div>
         <form wire:submit.prevent="memberStore">
@@ -37,17 +37,17 @@
           
                 <div class="mt20 b p20">
                     <div class="flex sp-block">
-                        <div class="wi-40">{{ $member->name }}</div>
+                        <div class="wi-40 sp-100">{{ $member->name }}</div>
                         <div class="wi-60 sp-100">
-                            <input class="wi-100" type="text" placeholder="名前を変更する場合は入力してください" wire:model="updateName">
+                            <input class="wi-100" type="text" placeholder="名前の変更" wire:model="updateName">
                         </div>
                     </div>
     
                     <div class="flex ccenter4 sp-block mt10">
-                        <div class="wi-40">{{ $member->campany }}</div>
-                        <div class="wi-60">
-                            <select id="updateCampany" wire:model="updateCampany">
-                                <option>所属会社を変更する場合は選択してください</option>
+                        <div class="wi-40 sp-100">{{ $member->campany }}</div>
+                        <div class="wi-60 sp-100">
+                            <select class="sp-100" id="updateCampany" wire:model="updateCampany">
+                                <option>所属会社の変更</option>
                                 @foreach ($campanies as $campany)
                                     <option value="{{ $campany->name }}">{{ $campany->name }}</option>
                                 @endforeach
@@ -56,7 +56,7 @@
                     </div>
     
                     <div class="flex mt10">
-                        <div class="mr20"><button class="original-button2" type="submit">変更</button></div>
+                        <div class="mr30"><button class="original-button2" type="submit">変更</button></div>
                         <div wire:click="del({{ $member->id }})"><button class="original-button3">削除</button></div>
                     </div>
                 </div>

@@ -36,10 +36,12 @@ class Campany extends Component
     }
 
     public function update(string $id) {
-        $updateName = ModelsCampany::find($id);
-        $updateName->name = $this->updateName;
-        $updateName->save();
-
+        if($this->updateName !== null) {
+            $updateName = ModelsCampany::find($id);
+            $updateName->name = $this->updateName;
+            $updateName->save();
+        }
+        
         return redirect()->route('campany');
     }
 
