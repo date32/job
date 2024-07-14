@@ -50,7 +50,7 @@
                     <div class="f1-5 tcenter mt20">会社一覧</div>
                     @foreach ($campanies as $item)
                         <div class="flex mt50 b p10">
-                            <form class="sp-80" wire:submit.prevent="update({{ $item->id }})">
+                            <form class="wi-100" wire:submit.prevent="update({{ $item->id }})">
                                     <div wire:model="delName">{{ $item->name }}</div>
                                     <div><input class="sp-100" type="text" placeholder="変更する場合は入力してください"
                                             wire:model="updateName" required>

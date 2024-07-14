@@ -4,7 +4,7 @@
     <div class="wi-50 ccenter3 grid2 mt20 sp-90 sp-block">
         <div class="box-shadow2 sp-p10"><a href="/register" class="f2">新規登録</a></div>
 
-        <div class="box-shadow2 sp-mt30">
+        <div class="box-shadow2 sp-mt50">
             <form wire:submit.prevent="login">
                 <div class="p20">
                     <div class="f2 tcenter">ログイン</div>
@@ -24,6 +24,7 @@
     </div>
 
     <div class="wi-80 ccenter3 mt20 tr">since.2023.11.24</div>
+    <div class="wi-80 ccenter3 tr">Ver2</div>
 
     <style>
         .original-button {

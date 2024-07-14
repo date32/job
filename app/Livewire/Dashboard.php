@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Campany;
 use App\Models\Construction;
 use App\Models\Member;
 use App\Models\MemberOfConstruction;
@@ -27,12 +28,14 @@ class Dashboard extends Component
     public $minuteEnd;
     public $inputMembers = [];
     public $image;
+    public $campaniesName;
 
     public function mount() {
         $this->auth = Auth::user();
         $this->today = Carbon::now()->isoformat('Y年M月D日 (ddd)');
         $this->name = Auth::user()->name;
         $this->members = Member::get();
+        $this->campaniesName = Campany::pluck('name'); // name カラムの値を取得
     }
 
     public function constructionStore() {

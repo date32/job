@@ -4,7 +4,7 @@
         <div>こんにちは{{ $name }}さん</div>
         <div>{{ $today }}</div>
     </div>
-    
+
     <div class="wi-60 grid5 ccenter3 tcenter sp-90 sp-grid4 mt10">
         <div><a href="/construction">現場一覧</a></div>
         <div><a href="/member">メンバー登録</a></div>
@@ -20,16 +20,16 @@
                 <div>【日付け】</div>
                 <div><input type="date" wire:model="date" required></div>
             </div>
-    
+
             <div class="mt20 tcenter">
                 <div><label for="place">【場所】</label></div>
-                <div><input type="text" id="place" wire:model="place" required></div>  
+                <div><input type="text" id="place" wire:model="place" required></div>
             </div>
-    
+
             <div class="mt20 tcenter">
                 <div>【現場写真】</div>
                 <div><input type="file" wire:model="image"></div>
-    
+
                 @if ($image)
                     <div>
                         <img class="mt10 ra10 ccenter3 wi4 sp-50"
@@ -38,7 +38,7 @@
                     </div>
                 @endif
             </div>
-    
+
             <div class="mt20 tcenter">
                 <div>【時間】</div>
                 <div class="grid7 sp-none">
@@ -97,7 +97,7 @@
                             </select>
                         </div>
                     </div>
-                    
+
                     <div class="sp-grid4 mt10">
                         <div class="ccenter4">至：</div>
                         <div>
@@ -117,17 +117,17 @@
                             </select>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
-    
-            <div class="mt20">
+
+            {{-- <div class="mt20">
                 <div class="tcenter">【メンバー】</div>
                 <div class="tcenter">※複数選択可</div>
                 <div class="flex-wrap">
                     <div class="mr20">
-                        <input type="checkbox" id="auth" wire:model="inputMembers" value="{{ $auth->name }}({{ $auth->campany }})"
-                            name="1">
+                        <input type="checkbox" id="auth" wire:model="inputMembers"
+                            value="{{ $auth->name }}({{ $auth->campany }})" name="1">
                         <label for="auth">{{ $auth->name }}({{ $auth->campany }})</label>
                     </div>
                     @foreach ($members as $member)
@@ -138,12 +138,37 @@
                         </div>
                     @endforeach
                 </div>
+            </div> --}}
+
+            <div class="mt20">
+                <div class="tcenter">【メンバー】</div>
+                <div class="tcenter">※複数選択可</div>
+                <input type="checkbox" id="auth" wire:model="inputMembers"
+                    value="{{ $auth->name }}({{ $auth->campany }})" name="1">
+                <label for="auth">{{ $auth->name }}({{ $auth->campany }})</label>
             </div>
+            @foreach ($campaniesName as $campanyName)
+                <div class="mr20 bt mt20">
+                    {{ $campanyName }}
+                </div>
+                <div class="flex-wrap">
+                    @foreach ($members as $member)
+                        @if ($member->campany == $campanyName)
+                            <div class="mr20">
+                                <input type="checkbox" id="{{ $member->name }}" wire:model="inputMembers"
+                                    value="{{ $member->name }}({{ $member->campany }})" name="1">
+                                <label for="{{ $member->name }}">{{ $member->name }}({{ $member->campany }})</label>
+                            </div>
+                        @endif
+                    @endforeach
+                </div>
+            @endforeach
+
             <div class="mt20"><button class="original-button ccenter3" type="submit">登録</button></div>
         </div>
     </form>
 
-    
+
 
     <style>
         .original-button {

@@ -570,6 +570,20 @@ a:hover {
 .br2 {
     border-right: 1px solid;
 }
+.bl {
+    border-left: 1px dashed;
+}
+
+.bl2 {
+    border-left: 1px solid;
+}
+.bt {
+    border-top: 1px dashed;
+}
+
+.bt2 {
+    border-top: 1px solid;
+}
 
 .b {
     border: solid 2px;
